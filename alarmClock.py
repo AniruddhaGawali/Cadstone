@@ -7,7 +7,7 @@ def set_alarm(alarm_time):
         current_time = datetime.datetime.now().strftime("%H:%M:%S")
         if current_time == alarm_time:
             print("Wake up!")
-            ps('./abc.wav')
+            ps('./YouTuber.mp4')
             break
         time.sleep(1)
 
