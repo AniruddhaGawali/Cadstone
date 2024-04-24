@@ -16,9 +16,16 @@ def BinarySearch(list1,start,end,num):
     
 
 def main():
-    list1= [1,2,3,4,5]
+    len = int(input("Enter the length of the list: "))
+    list1= []
+
+    for i in range(1,len+1):
+        i = int(input(f"Enter the {i} element: "))
+        list1.append(i)
+
     num = int(input("Enter the number to be found: "))
-    res = BinarySearch(list1,0,len(list1),num)
+    res = BinarySearch(list1,0,len,num)
+
     if(res == -1):
             print("The element is not found")
     else:
