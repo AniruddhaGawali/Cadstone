@@ -1,13 +1,14 @@
 import datetime
 import time
-from playsound import playsound
+from playsound import playsound as ps
 
 def set_alarm(alarm_time):
     while True:
         current_time = datetime.datetime.now().strftime("%H:%M:%S")
         if current_time == alarm_time:
             print("Wake up!")
-            playsound('./alarm.mp3')
+            ps('./YouTuber.mp4')
+
             break
         time.sleep(1)
 

@@ -43,6 +43,7 @@ def search():
 		country_label.config(text="Country : " + str(weather[1]['country']))
 		atmospheric_condition.config(text="Atmospheric Condition : " + str(weather[4]))
 		temperature_label.config(text=str(round(weather[3], 2)) + " Degree Celsius")
+
 	else: 
 		messagebox.showerror('Error', "Cannot find {}".format(city)) 
 
@@ -62,6 +63,7 @@ city_entry.pack()
 Search_btn = Button(app, text="Search Weather", 
 					width=12, command=search) 
 Search_btn.pack() 
+
 
 city_label = Label(app, text="")
 city_label.pack()

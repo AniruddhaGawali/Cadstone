@@ -1,3 +1,4 @@
+
 import requests
 from bs4 import BeautifulSoup
 from gtts import gTTS
@@ -46,6 +47,7 @@ def main():
         read_article(article)
     else:
         print("No article found. or not permitted to access the article.")
+
 
 if __name__ == '__main__':
     main()
