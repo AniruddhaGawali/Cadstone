@@ -8,12 +8,14 @@ def set_alarm(alarm_time):
         if current_time == alarm_time:
             print("Wake up!")
             ps('./YouTuber.mp4')
+
             break
         time.sleep(1)
 
 def main():
     print("Enter the time for the alarm (format: HH:MM:SS)")
     alarm_time = input(">> ")
+  
     try:
         datetime.datetime.strptime(alarm_time, "%H:%M:%S")
     except ValueError:

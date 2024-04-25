@@ -1,31 +1,23 @@
-# importing the module 
-from pytube import YouTube 
 
-# where to save 
-SAVE_PATH = "E:/" #to_do 
+from pytube import YouTube
 
-# link of the video to be downloaded 
-link="https://youtu.be/XewspIh58Qg?si=QozB4ryEeXIBnDEK"
+def download_video_with_audio(url, output_path):
+    try:
+        yt = YouTube(url)
 
-try: 
-	# object creation using YouTube 
-	# which was imported in the beginning 
-	yt = YouTube(link) 
-except: 
-	print("Connection Error") #to handle exception 
+        # Filter streams for a stream that contains both audio and video
+        stream = yt.streams.filter(progressive=True).first()
 
-# filters out all the files with "mp4" extension 
-mp4files = yt.filter('mp4') 
+        # Download the stream
+        stream.download(output_path)
 
-#to set the name of the file 
-yt.set_filename('GeeksforGeeks Video') 
+        print("Download completed successfully!")
+    except Exception as e:
+        print(f"Error: {e}")
 
-# get the video with the extension and 
-# resolution passed in the get() function 
-d_video = yt.get(mp4files[-1].extension,mp4files[-1].resolution) 
-try: 
-	# downloading the video 
-	d_video.download(SAVE_PATH) 
-except: 
-	print("Some Error!") 
-print('Task Completed!') 
+# Example usage:
+video_url = input("Enter the video URL: ")
+output_path = "./videos/"
+download_video_with_audio(video_url, output_path)
+
+

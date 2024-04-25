@@ -37,10 +37,13 @@ def getweather(city):
 def search(): 
 	city = city_text.get() 
 	weather = getweather(city) 
+	print(weather)
 	if weather: 
-		location_lbl['text'] = '{} ,{}'.format(weather[0], weather[1]) 
-		temperature_label['text'] = str(weather[3])+" Degree Celsius"
-		weather_l['text'] = weather[4] 
+		city_label.config(text="City : " + str(weather[0]))
+		country_label.config(text="Country : " + str(weather[1]['country']))
+		atmospheric_condition.config(text="Atmospheric Condition : " + str(weather[4]))
+		temperature_label.config(text=str(round(weather[3], 2)) + " Degree Celsius")
+
 	else: 
 		messagebox.showerror('Error', "Cannot find {}".format(city)) 
 
@@ -60,10 +63,20 @@ city_entry.pack()
 Search_btn = Button(app, text="Search Weather", 
 					width=12, command=search) 
 Search_btn.pack() 
-location_lbl = Label(app, text="Location", font={'bold', 20}) 
-location_lbl.pack() 
+
+
+city_label = Label(app, text="")
+city_label.pack()
+country_label = Label(app, text="")
+country_label.pack()
+atmospheric_condition  = Label(app, text="")
+atmospheric_condition.pack()
+
+
 temperature_label = Label(app, text="") 
 temperature_label.pack() 
+
 weather_l = Label(app, text="") 
 weather_l.pack() 
+
 app.mainloop() 
